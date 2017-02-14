@@ -401,11 +401,16 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   };
 
   this.getDates = function(startDate, n) {
-    var dates = new Array(n), current = new Date(startDate), i = 0, date;
+    var dates = new Array(n), current = new Date(startDate), i = 0, date, diffHours;
     while (i < n) {
       date = new Date(current);
       dates[i++] = date;
       current.setDate(current.getDate() + 1);
+
+      if (date.getDate() == current.getDate()) {
+        diffHours = 24 - current.getHours();
+        current.setHours(current.getHours() + diffHours + 1);
+      }
     }
     return dates;
   };
