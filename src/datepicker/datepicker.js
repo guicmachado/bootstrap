@@ -407,7 +407,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
       dates[i++] = date;
       current.setDate(current.getDate() + 1);
 
-      if (date.getDate() == current.getDate()) {
+      if (date.getDate() === current.getDate()) {
         diffHours = 24 - current.getHours();
         current.setHours(current.getHours() + diffHours + 1);
       }
